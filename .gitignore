@@ -1,0 +1,8 @@
+*.jpg
+*.webp
+*.png
+*.rar
+*.zip
+/img
+/lib
+/backup
