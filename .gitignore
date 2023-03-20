@@ -1,8 +1,16 @@
+*.config
 *.jpg
 *.webp
 *.png
+*.svg
 *.rar
 *.zip
+*.bat
+*.sh
 /img
 /lib
 /backup
+/.vscode
+/temp
+prepros.config
+dev.html
