@@ -1,11 +1,206 @@
 <!DOCTYPE html>
-<meta charset="utf-8" />
-<script src="https://frankgp.com/stats/send.js" type="module"></script>
+<html lang="en">
+  <head>
+    <script src="https://frankgp.com/component/stat.js" type="module"></script>
+    <script src="https://frankgp.com/component/layout.js" type="module"></script>
+    <script src="https://frankgp.com/component/loader.js"></script>
+    <title>Frank GP | Developer</title>
+  </head>
+  <body>
+    <main>
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+        body {
+          /* width: 100%; */
+          overflow-x: hidden;
+        }
 
-<title>Redirecting to icon</title>
-<meta http-equiv="refresh" content="0; URL=./icomoon/demo.html" />
-<link rel="canonical" href="https://frankgp.com/icon/icomoon/" />
-<!-- ========== google... ========== -->
-<meta name="robots" content="noindex" />
-<meta name="googlebot" content="noindex" />
-<!-- ========== google. ========== -->
+        pre {
+          /* overflow: scroll; */
+          /* width: 100%; */
+          background-color: #023;
+        }
+        pre:hover {
+          opacity: 0.7;
+        }
+        pre:active {
+          content: "copied";
+          background-color: white;
+          opacity: 1;
+          color: #000;
+          position: relative;
+        }
+        code:active:after {
+          content: "copied... ✅ (double click open link)";
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          padding-left: 1em;
+          position: absolute;
+          inset: 0;
+          color: #000;
+          background-color: #fff;
+        }
+        .link {
+          cursor: pointer;
+          color: dodgerblue;
+          font-size: 1.2em;
+          padding: 1em;
+          display: block;
+          text-decoration: none;
+        }
+        .link:hover {
+          text-decoration: underline;
+        }
+        article {
+          margin-bottom: 2em;
+        }
+        h2 {
+          margin-bottom: 0.5em;
+        }
+      </style>
+      <section>
+        <h1>Icon CDNs</h1>
+        <br />
+        <hr />
+        <br />
+
+        <!-- ========== article 1 ========== -->
+        <article>
+          <h2>Icomoon</h2>
+          <a class="btn" href="https://frankgp.com/icon/icomoon/demo.html" class="external-link" target="_blank">
+            <i class="icon-search"></i>
+          </a>
+          <a class="btn" href="https://frankgp.com/icon/icomoon-v1.0.zip" class="external-link" download> <i class="icon-download"></i> zip </a>
+          <a class="btn" href="https://frankgp.com/icon/icomoon/style.css" class="external-link" target="_blank" download> <i class="icon-download"></i> css </a>
+          <pre><code class="link">https://frankgp.com/icon/icomoon/style.css</code></pre>
+        </article>
+
+        <!-- ========== article 2 ========== -->
+        <article>
+          <h2>Remixicon</h2>
+          <a class="btn" href="https://remixicon.com/" class="external-link" target="_blank">
+            <i class="icon-search"></i>
+          </a>
+          <a class="btn" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" target="_blank" download> <i class="icon-download"></i> css </a>
+          <pre><code class="link">https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css</code></pre>
+        </article>
+
+        <!-- ========== article 3 ========== -->
+        <article>
+          <h2>unicons</h2>
+          <a class="btn" href="https://iconscout.com/unicons/solid-icons" class="external-link" target="_blank">
+            <i class="icon-search"></i>
+          </a>
+          <a class="btn" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" target="_blank" download> <i class="icon-download"></i> css </a>
+          <pre><code class="link">https://unicons.iconscout.com/release/v4.0.8/css/line.css</code></pre>
+        </article>
+
+        <!-- ========== article 4 ========== -->
+        <article>
+          <h2>font-awesome</h2>
+          <a class="btn" href="https://iconscout.com/unicons/solid-icons" class="external-link" target="_blank">
+            <i class="icon-search"></i>
+          </a>
+          <a class="btn" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" target="_blank" download> <i class="icon-download"></i> css </a>
+          <pre><code class="link">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css</code></pre>
+          <pre><code class="link">https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css</code></pre>
+        </article>
+
+        <!-- ========== article 5 ========== -->
+        <article>
+          <h2>fonts.googleapis.com</h2>
+          <a class="btn" href="https://fonts.google.com/icons" class="external-link" target="_blank">
+            <i class="icon-search"></i>
+          </a>
+
+          <pre><code class="link">https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0</code></pre>
+        </article>
+
+        <!-- ========== article 6 ========== -->
+        <article>
+          <h2>boxicons</h2>
+          <a class="btn" href="https://boxicons.com/" class="external-link" target="_blank">
+            <i class="icon-search"></i>
+          </a>
+          <pre><code class="link">https://unpkg.com/boxicons@2.1.4/dist/boxicons.js</code></pre>
+        </article>
+      </section>
+      <script>
+        // Get all <a> elements with the 'download' attribute
+        const downloadLinks = document.querySelectorAll("a[download]");
+
+        // Attach a click event listener to each link
+        downloadLinks.forEach((link) => {
+          link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default link behavior (e.g., navigating to the href)
+
+            const url = link.getAttribute("href");
+
+            fetch(url)
+              .then((response) => response.blob())
+              .then((blob) => {
+                // Obtener el último segmento de la ruta en la URL como nombre de archivo
+                var fileName = new URL(url).pathname.split("/").pop();
+
+                // Crear un enlace de descarga con el objeto Blob y el nombre de archivo dinámico
+                var blobURL = URL.createObjectURL(blob);
+                var link = document.createElement("a");
+                link.href = blobURL;
+                link.download = fileName;
+
+                // Agregar el elemento al documento (puedes ocultarlo o agregarlo según sea necesario)
+                document.body.appendChild(link);
+
+                // Simular un clic en el enlace para iniciar la descarga
+                link.click();
+
+                // Liberar recursos asociados con el objeto URL después de que se ha iniciado la descarga
+                window.URL.revokeObjectURL(blobURL);
+              })
+              .catch((error) => {
+                console.error("Error al cargar la URL:", error);
+              });
+          });
+        });
+      </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var links = document.querySelectorAll(".link");
+          links.forEach(function (link) {
+            link.addEventListener("dblclick", function (event) {
+              event.preventDefault();
+              console.log(link.textContent);
+              window.open(link.textContent, "_blank");
+            });
+          });
+        });
+      </script>
+      <script>
+        // Function to copy text content to clipboard
+        function copyToClipboard(element) {
+          const textContent = element.textContent;
+          const textarea = document.createElement("textarea");
+          textarea.value = textContent;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
+
+          // You can optionally provide feedback to the user
+          // alert("Copied to clipboard: " + textContent);
+        }
+
+        // Select all elements with class "link" and attach the click event
+        const codeElements = document.querySelectorAll("code");
+        codeElements.forEach((codeElement) => {
+          codeElement.onclick = function () {
+            copyToClipboard(this);
+          };
+        });
+      </script>
+    </main>
+  </body>
+</html>

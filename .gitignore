@@ -13,7 +13,7 @@
 /.vscode
 /temp
 prepros.config
-dev.html
+*dev.*
 
-#except for a specific file named "demo.zip," 
+#except for a specific file named "demo.zip,"
 !icomoon-v1.0.zip
