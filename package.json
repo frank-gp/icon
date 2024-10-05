@@ -1,0 +1,14 @@
+{
+    "name": "my-icons-library",
+    "version": "1.0.0",
+    "description": "Una librería de iconos CSS",
+    "main": "css/icons.css",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/usuario/my-icons-library.git"
+    },
+    "keywords": ["css", "icons", "library"],
+    "author": "Tu Nombre",
+    "license": "MIT"
+  }
+  
