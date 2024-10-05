@@ -1,0 +1,14 @@
+{
+    "name": "frankgp-icon",
+    "version": "1.0.0",
+    "description": "Una librería de iconos CSS",
+    "main": "icomoon/style.css",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/frank-gp/icon.git"
+    },
+    "keywords": ["css", "icons", "library"],
+    "author": "Frank GP",
+    "license": "MIT"
+  }
+  
