@@ -2,7 +2,7 @@
 *.jpg
 *.webp
 *.png
-*.svg
+# *.svg
 *.rar
 *.zip
 *.bat

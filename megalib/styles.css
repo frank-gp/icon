@@ -1,0 +1,65 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+}
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.control-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+}
+.icon-box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s, transform 0.2s;
+  text-align: center;
+}
+.icon-box:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+.icon {
+  font-size: 30px; /* Ajusta según el tamaño real de tus iconos */
+  margin-bottom: 5px;
+}
+.icon-name {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+}
+/* Oculta los elementos que no coincidan con la búsqueda */
+.icon-box.hidden {
+  display: none;
+}
