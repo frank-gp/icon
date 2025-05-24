@@ -6,6 +6,9 @@
 
  https://mega.io/wp-content/themes/megapages/megalib/icons/mono/airplay-mto.svg
  
+ https://mega.io/wp-content/themes/megapages/megalib/css/icons.css
+ https://frank-gp.github.io/icon/megalib/icons.css
+ https://frank-gp.github.io/icon/megalib/icons-cdn.css
  */
 
 :root {
@@ -182,20 +185,20 @@
   flex-shrink: 0; /* Don't shrink if used in a flexbox context */
   width: var(--icon-size);
   height: var(--icon-size);
-}
 
-.icon {
-  display: block;
-  width: 100%;
-  height: 100%;
-  mask-position: center;
-  -webkit-mask-position: center;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-  color: inherit;
-  background-color: currentColor;
+  .icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    color: inherit;
+    background-color: currentColor;
+  }
 }
 
 /* region Mono icons */

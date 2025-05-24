@@ -10,6 +10,8 @@
   </head>
   <body>
     <h1>Mega Icons</h1>
+    <div class="message-copy"></div>
+
     <div class="controls">
       <input type="text" id="searchInput" class="search-input" placeholder="Buscar iconos..." />
       <div class="control-panel">
@@ -192,37 +194,55 @@
       <div class="icon-box"><span class="icon rss"></span></div>
       <div class="icon-box"><span class="icon union-start"></span></div>
     </main>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const iconBoxes = document.querySelectorAll(".icon-box");
         const jsxToggle = document.getElementById("jsxToggle");
-        const searchInput = document.getElementById("searchInput"); // <-- Nuevo: Referencia al campo de búsqueda
+        const searchInput = document.getElementById("searchInput");
+        const messageCopy = document.querySelector(".message-copy"); // <-- Nuevo: Referencia al div de mensaje
+
+        // Función para mostrar un mensaje temporal
+        const showMessage = (message, isError = false) => {
+          messageCopy.textContent = message;
+          messageCopy.style.display = "block"; // Asegúrate de que el div sea visible
+
+          if (isError) {
+            messageCopy.style.backgroundColor = "#ffe0e0"; // Color de fondo para errores (opcional)
+            messageCopy.style.color = "#d9534f"; // Color de texto para errores (opcional)
+          } else {
+            messageCopy.style.backgroundColor = "#d4edda"; // Color de fondo para éxito (opcional)
+            messageCopy.style.color = "#155724"; // Color de texto para éxito (opcional)
+          }
+
+          setTimeout(() => {
+            messageCopy.style.display = "none"; // Oculta el mensaje después de 3 segundos
+            messageCopy.textContent = ""; // Limpia el contenido
+            messageCopy.style.backgroundColor = ""; // Restaura el color de fondo (opcional)
+            messageCopy.style.color = ""; // Restaura el color de texto (opcional)
+          }, 3000); // El mensaje desaparecerá después de 3 segundos
+        };
 
         // Función para filtrar iconos
         const filterIcons = () => {
-          const searchTerm = searchInput.value.toLowerCase(); // Obtener el término de búsqueda en minúsculas
+          const searchTerm = searchInput.value.toLowerCase();
 
           iconBoxes.forEach((iconBox) => {
-            // Obtener el nombre del icono del párrafo .icon-name o de la clase del span.icon
             const iconNameElement = iconBox.querySelector(".icon-name");
-            let iconName = iconNameElement ? iconNameElement.textContent.toLowerCase() : ""; // <-- Aquí está el cambio
+            let iconName = iconNameElement ? iconNameElement.textContent.toLowerCase() : "";
 
-            // Si no hay .icon-name, intenta obtener de la clase del span.icon (menos fiable)
             if (!iconName && iconBox.querySelector(".icon")) {
               const iconClasses = Array.from(iconBox.querySelector(".icon").classList);
-              // Filtra las clases que no son 'icon' y usa la primera que quede como nombre
               const specificIconClass = iconClasses.find((cls) => cls !== "icon");
               if (specificIconClass) {
-                // Limpia el nombre si tiene sufijos como -mto, -mro, -sro
                 iconName = specificIconClass.replace(/-(mto|mro|sro)$/, "");
               }
             }
 
-            // Comprobar si el nombre del icono incluye el término de búsqueda
             if (iconName.includes(searchTerm)) {
-              iconBox.classList.remove("hidden"); // Mostrar el icono
+              iconBox.classList.remove("hidden");
             } else {
-              iconBox.classList.add("hidden"); // Ocultar el icono
+              iconBox.classList.add("hidden");
             }
           });
         };
@@ -230,7 +250,7 @@
         // Event Listener para el campo de búsqueda
         searchInput.addEventListener("input", filterIcons);
 
-        // Event Listener para la copia de iconos (el mismo que ya tenías)
+        // Event Listener para la copia de iconos
         iconBoxes.forEach((iconBox) => {
           iconBox.addEventListener("click", async () => {
             let htmlToCopy = iconBox.outerHTML;
@@ -242,13 +262,18 @@
             try {
               await navigator.clipboard.writeText(htmlToCopy);
               console.log("Elemento copiado al portapapeles:", htmlToCopy);
-              alert("¡Elemento copiado al portapapeles!");
+              showMessage("¡Elemento copiado al portapapeles!"); // <-- Usar showMessage
             } catch (err) {
               console.error("Error al copiar el elemento:", err);
-              alert("Error al copiar el elemento. Por favor, intenta de nuevo.");
+              showMessage("Error al copiar el elemento. Por favor, intenta de nuevo.", true); // <-- Usar showMessage para errores
             }
           });
         });
+
+        // Asegúrate de que el div de mensaje esté oculto al inicio
+        if (messageCopy) {
+          messageCopy.style.display = "none";
+        }
 
         // Llamar a filterIcons al cargar la página para asegurar que todo esté visible inicialmente
         filterIcons();
